@@ -1,0 +1,391 @@
+:root {
+  --bg-1: #f7efe9;
+  --bg-2: #f3dfd2;
+  --ink: #2a1f1f;
+  --ink-soft: #6c5454;
+  --panel: #fffaf7;
+  --line: #e8d5ca;
+  --primary: #c56149;
+  --primary-strong: #a94731;
+  --danger: #9b2c2c;
+  --danger-bg: #fff0f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  color: var(--ink);
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #ffffff 0%, transparent 60%),
+    radial-gradient(1000px 600px at 100% 110%, #ffd9c5 0%, transparent 55%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  -webkit-text-size-adjust: 100%;
+}
+
+.app {
+  width: min(100%, 820px);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.bottom-tools {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.editor-mini {
+  border: none;
+  background: transparent;
+  color: #8e7672;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0.48;
+  padding: 2px 4px;
+}
+
+.editor-mini:hover {
+  opacity: 0.85;
+}
+
+.game-title {
+  margin: 0;
+  font-size: clamp(22px, 3vw, 30px);
+  letter-spacing: -0.02em;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 18px 45px rgba(74, 36, 24, 0.12);
+}
+
+.scene-head {
+  display: block;
+}
+
+.scene-label {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.scene-title {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 2.8vw, 30px);
+  line-height: 1.25;
+}
+
+.scene-body {
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.7;
+}
+
+.scene-result {
+  margin: 14px 0 0;
+  color: var(--primary-strong);
+  font-weight: 700;
+  white-space: pre-line;
+}
+
+.character-mood {
+  margin: 0 0 10px;
+  color: #6b4b47;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.choices {
+  margin-top: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.btn {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  min-height: 48px;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.primary {
+  background: #fff3ec;
+  border-color: #f0d0be;
+  color: var(--ink);
+}
+
+.btn.primary:hover {
+  background: #ffe8db;
+}
+
+.btn.ghost {
+  width: auto;
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.ending .scene-title {
+  color: var(--primary-strong);
+}
+
+.gameover {
+  border: 1px solid #f2cbcb;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.proposal-stage {
+  position: relative;
+  height: min(70vh, 560px);
+  margin-top: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 520px at 20% 20%, rgba(255, 214, 190, 0.13), transparent 55%),
+    radial-gradient(1000px 420px at 80% 80%, rgba(255, 214, 190, 0.13), transparent 60%),
+    #120a0a;
+  border: 1px solid #3a2020;
+}
+
+.proposal-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #fff;
+  font-size: clamp(24px, 3.6vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: rgba(15, 6, 6, 0.82);
+  text-align: center;
+  white-space: pre-line;
+  opacity: 1;
+}
+
+.proposal-caption.show {
+  opacity: 1;
+}
+
+.proposal-text {
+  margin: 0;
+  max-width: min(92%, 780px);
+  line-height: 1.65;
+}
+
+.editor-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(22, 14, 12, 0.52);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 40;
+}
+
+.editor-modal.open {
+  display: flex;
+}
+
+.editor-panel {
+  width: min(100%, 980px);
+  max-height: 90vh;
+  background: #fffaf7;
+  border: 1px solid #e8d5ca;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 18px 45px rgba(74, 36, 24, 0.2);
+  display: grid;
+  gap: 10px;
+}
+
+.editor-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-head h2 {
+  margin: 0;
+}
+
+.editor-help {
+  margin: 0;
+  color: #6f5652;
+}
+
+.story-textarea {
+  width: 100%;
+  min-height: 50vh;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #e7d4c9;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #fffefe;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+}
+
+@keyframes pulseText {
+  from {
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    transform: translateX(-50%) scale(1.03);
+  }
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.03);
+  }
+  50% {
+    transform: rotate(3deg) scale(1.03);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+
+  .app {
+    width: 100%;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .topbar-actions {
+    width: 100%;
+  }
+
+  .topbar-actions .btn {
+    width: auto;
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .card {
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .scene-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .scene-title {
+    font-size: clamp(26px, 6.1vw, 34px);
+    margin-bottom: 10px;
+  }
+
+  .scene-body {
+    font-size: 17px;
+    line-height: 1.72;
+  }
+
+  .scene-result {
+    font-size: 16px;
+  }
+
+  .character-mood {
+    font-size: 13px;
+  }
+
+  .choices {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .choices .btn {
+    font-size: 17px;
+    line-height: 1.45;
+    min-height: 52px;
+    padding: 12px 12px;
+  }
+
+  .proposal-stage {
+    height: min(58vh, 460px);
+  }
+
+  .proposal-caption {
+    font-size: clamp(20px, 6.2vw, 32px);
+    padding: 16px;
+  }
+
+  .proposal-text {
+    max-width: 98%;
+    line-height: 1.62;
+  }
+
+  .bottom-tools {
+    margin-top: 4px;
+  }
+
+  .editor-mini {
+    font-size: 10px;
+  }
+
+}

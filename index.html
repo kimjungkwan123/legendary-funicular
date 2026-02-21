@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>우리의 특별한 선택지</title>
+    <link rel="stylesheet" href="style.css?v=20260221-2" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <h1 class="game-title">💍 우리의 특별한 선택지</h1>
+        <div class="topbar-actions">
+          <button id="restartBtn" class="btn ghost" type="button">처음부터</button>
+        </div>
+      </header>
+
+      <section class="card" aria-live="polite">
+        <div class="scene-head">
+          <p class="scene-label" id="sceneLabel">[Game Start]</p>
+          <h2 class="scene-title" id="sceneTitle"></h2>
+          <p id="characterMood" class="character-mood">😊 차근차근, 우리 잘 해보자!</p>
+        </div>
+        <p class="scene-body" id="sceneBody"></p>
+        <p class="scene-result" id="sceneResult"></p>
+
+        <div id="choices" class="choices"></div>
+      </section>
+
+      <div class="bottom-tools">
+        <button id="editorBtn" class="editor-mini" type="button">스토리 에디터</button>
+      </div>
+    </main>
+
+    <section id="editorModal" class="editor-modal" aria-hidden="true">
+      <div class="editor-panel">
+        <header class="editor-head">
+          <h2>스토리 에디터</h2>
+          <button id="closeEditorBtn" class="btn ghost" type="button">닫기</button>
+        </header>
+        <p class="editor-help">아래 JSON에서 문구/선택지/분기를 수정하고 `적용`을 누르세요.</p>
+        <textarea id="storyTextarea" class="story-textarea" spellcheck="false"></textarea>
+        <div class="editor-actions">
+          <button id="applyEditorBtn" class="btn primary" type="button">적용</button>
+          <button id="resetEditorBtn" class="btn ghost" type="button">초기값 복원</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="game.js?v=20260221-2"></script>
+  </body>
+</html>
