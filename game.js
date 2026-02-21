@@ -23,7 +23,7 @@
       "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'><rect width='120' height='160' rx='20' fill='#f5ebe4'/><circle cx='60' cy='52' r='24' fill='#e6c8b8'/><rect x='26' y='84' width='68' height='56' rx='28' fill='#dcb59f'/><circle cx='50' cy='48' r='3' fill='#5b443b'/><circle cx='70' cy='48' r='3' fill='#5b443b'/><path d='M50 62 q10 8 20 0' fill='none' stroke='#5b443b' stroke-width='2'/></svg>"
     );
 
-  const STORAGE_KEY = "proposal_game_story_v2";
+  const STORAGE_KEY = "proposal_game_story_v3";
   const LEGACY_STORAGE_KEYS = ["proposal_game_story_v1"];
   const DEFAULT_STORY = {
     start: "scene_1",
@@ -32,12 +32,11 @@
         label: "[Game Start]",
         title: "Scene 1. 런웨이 뒤편의 우연 (패션쇼장)",
         body:
-          "시끄러운 음악과 모델들의 분주한 발소리 속에서, 카메라를 든 기자(남자)가 보입니다. 스태프인 당신(여자)은 그를 본 순간 심장이 뛰기 시작합니다. 업무를 핑계로 말을 걸어볼까요?",
+          "시끄러운 음악과 모델들의 분주한 발소리 속에서, 카메라를 든 기자(남자)가 보입니다. 스태프인 당신(여자)은 그를 본 순간 심장이 뛰기 시작합니다.",
         options: [
           {
-            text: "[선택 A] \"저기... 혹시 취재 관련해서 물어볼 게 있는데, 번호 좀 알 수 있을까요?\"",
-            result:
-              "남자가 미소 지으며 명함을 건넵니다. 그렇게 두 사람의 첫 데이트가 시작됩니다.",
+            text: "[선택 A] \"페이스북 대나무숲에 올려봐야지. 혹시 여자친구 있으세요?\"",
+            result: "용감한 자가 미인을 얻는다.",
             next: "scene_1_5"
           },
           {
