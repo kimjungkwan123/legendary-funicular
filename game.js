@@ -426,27 +426,8 @@
   };
 
   const renderProposalStage = () => {
-    const stage = document.createElement("section");
-    stage.className = "proposal-stage";
-
-    const caption = document.createElement("div");
-    caption.className = "proposal-caption";
-
-    const text = document.createElement("p");
-    text.className = "proposal-text";
-    caption.appendChild(text);
-    stage.appendChild(caption);
-
-    choicesWrap.appendChild(stage);
-
-    text.textContent =
-      "수많은 오해와 헤어짐의 기로가 있었지만,\n" +
-      "결국 내 마지막 선택지는 항상 너였어.\n" +
-      "나랑 결혼해줄래?\n" +
-      "지금까지 자주 못 만나고 못했던 경험들,\n" +
-      "같이 살면서 또 같이 많이 해보자";
-
-    caption.classList.add("show");
+    // Proposal scene intentionally has no extra panel/text.
+    // Keep the screen minimal for real-life proposal timing.
   };
 
   const render = () => {
